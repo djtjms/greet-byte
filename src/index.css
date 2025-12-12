@@ -123,6 +123,35 @@
     animation: paddy-sway 4s ease-in-out infinite;
     transform-origin: bottom center;
   }
+
+  /* Page transition animations */
+  .page-enter {
+    animation: page-fade-in 0.4s ease-out forwards;
+  }
+
+  /* Nav link hover underline effect */
+  .nav-link-hover {
+    @apply relative;
+  }
+  
+  .nav-link-hover::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-secondary scale-x-0 origin-right transition-transform duration-300;
+  }
+  
+  .nav-link-hover:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Card hover glow effect */
+  .card-hover-glow {
+    @apply transition-all duration-300;
+  }
+  
+  .card-hover-glow:hover {
+    @apply shadow-xl;
+    box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+  }
 }
 
 @keyframes float {
@@ -140,5 +169,16 @@
   }
   50% {
     transform: rotate(3deg);
+  }
+}
+
+@keyframes page-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
