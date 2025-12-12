@@ -4,7 +4,7 @@ import PaddyField from '@/components/PaddyField';
 import { Link } from 'react-router-dom';
 
 const Solutions = () => {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
 
   const pillars = [
     {
@@ -102,13 +102,12 @@ const Solutions = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="text-6xl mb-6">✨</div>
           <h1 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-            {t('সমাধান আছে!', 'There Is A Solution!')}
+            {language === 'bn' ? 'সমাধান আছে!' : 'There Is A Solution!'}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t(
-              'বাংলাদেশ ২.০ - একটি প্ল্যাটফর্ম যা সবার জীবন বদলে দেবে',
-              'Bangladesh 2.0 - One platform that transforms every life'
-            )}
+            {language === 'bn'
+              ? 'বাংলাদেশ ২.০ - একটি প্ল্যাটফর্ম যা সবার জীবন বদলে দেবে'
+              : 'Bangladesh 2.0 - One platform that transforms every life'}
           </p>
         </div>
       </section>
@@ -117,13 +116,12 @@ const Solutions = () => {
       <section className="py-16 px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-primary mb-4">
-            {t('প্ল্যাটফর্ম কীভাবে কাজ করে', 'How The Platform Works')}
+            {language === 'bn' ? 'প্ল্যাটফর্ম কীভাবে কাজ করে' : 'How The Platform Works'}
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            {t(
-              'AI প্রযুক্তি দিয়ে ৬টি স্তম্ভ সংযুক্ত',
-              '6 pillars connected by AI technology'
-            )}
+            {language === 'bn'
+              ? 'AI প্রযুক্তি দিয়ে ৬টি স্তম্ভ সংযুক্ত'
+              : '6 pillars connected by AI technology'}
           </p>
 
           {/* Central AI Core */}
@@ -132,7 +130,7 @@ const Solutions = () => {
               <Brain className="w-16 h-16 md:w-20 md:h-20 text-white" />
             </div>
             <p className="mt-4 font-bold text-primary text-xl">
-              {t('AI কোর', 'AI Core')}
+              {language === 'bn' ? 'AI কোর' : 'AI Core'}
             </p>
           </div>
 
@@ -148,10 +146,10 @@ const Solutions = () => {
                   {pillar.icon}
                 </div>
                 <h3 className="text-lg font-bold text-center text-foreground mb-2">
-                  {t(pillar.titleBn, pillar.titleEn)}
+                  {language === 'bn' ? pillar.titleBn : pillar.titleEn}
                 </h3>
                 <p className="text-sm text-center text-muted-foreground">
-                  {t(pillar.descBn, pillar.descEn)}
+                  {language === 'bn' ? pillar.descBn : pillar.descEn}
                 </p>
               </div>
             ))}
@@ -163,10 +161,10 @@ const Solutions = () => {
       <section className="py-16 px-4 bg-muted">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-primary mb-4">
-            {t('আপনার জন্য কী আছে?', 'What\'s In It For You?')}
+            {language === 'bn' ? 'আপনার জন্য কী আছে?' : "What's In It For You?"}
           </h2>
           <p className="text-center text-muted-foreground mb-12">
-            {t('আপনার ভূমিকা অনুযায়ী সুবিধা', 'Benefits based on your role')}
+            {language === 'bn' ? 'আপনার ভূমিকা অনুযায়ী সুবিধা' : 'Benefits based on your role'}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -181,11 +179,11 @@ const Solutions = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg text-foreground">
-                    {t(role.roleBn, role.roleEn)}
+                    {language === 'bn' ? role.roleBn : role.roleEn}
                   </h3>
                   <p className="text-primary font-semibold flex items-center gap-2">
                     <ArrowRight className="w-4 h-4" />
-                    {t(role.benefitBn, role.benefitEn)}
+                    {language === 'bn' ? role.benefitBn : role.benefitEn}
                   </p>
                 </div>
               </div>
@@ -198,33 +196,33 @@ const Solutions = () => {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-primary mb-12">
-            {t('পরিবর্তন দেখুন', 'See The Transformation')}
+            {language === 'bn' ? 'পরিবর্তন দেখুন' : 'See The Transformation'}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Before */}
             <div className="bg-destructive/10 rounded-2xl p-6 border-2 border-destructive/30">
               <h3 className="text-xl font-bold text-destructive mb-4 text-center">
-                {t('আগে 😔', 'Before 😔')}
+                {language === 'bn' ? 'আগে 😔' : 'Before 😔'}
               </h3>
               <ul className="space-y-3 text-foreground">
-                <li className="flex items-center gap-2">❌ {t('৪৭% বেকার স্নাতক', '47% unemployed graduates')}</li>
-                <li className="flex items-center gap-2">❌ {t('ডাক্তার পাওয়া কঠিন', 'Hard to find doctors')}</li>
-                <li className="flex items-center gap-2">❌ {t('ফসল নষ্ট হয়', 'Crops go to waste')}</li>
-                <li className="flex items-center gap-2">❌ {t('ব্যাংক সুবিধা নেই', 'No banking access')}</li>
+                <li className="flex items-center gap-2">❌ {language === 'bn' ? '৪৭% বেকার স্নাতক' : '47% unemployed graduates'}</li>
+                <li className="flex items-center gap-2">❌ {language === 'bn' ? 'ডাক্তার পাওয়া কঠিন' : 'Hard to find doctors'}</li>
+                <li className="flex items-center gap-2">❌ {language === 'bn' ? 'ফসল নষ্ট হয়' : 'Crops go to waste'}</li>
+                <li className="flex items-center gap-2">❌ {language === 'bn' ? 'ব্যাংক সুবিধা নেই' : 'No banking access'}</li>
               </ul>
             </div>
 
             {/* After */}
             <div className="bg-primary/10 rounded-2xl p-6 border-2 border-primary/30">
               <h3 className="text-xl font-bold text-primary mb-4 text-center">
-                {t('পরে 🎉', 'After 🎉')}
+                {language === 'bn' ? 'পরে 🎉' : 'After 🎉'}
               </h3>
               <ul className="space-y-3 text-foreground">
-                <li className="flex items-center gap-2">✅ {t('৯০%+ কর্মসংস্থান', '90%+ employment')}</li>
-                <li className="flex items-center gap-2">✅ {t('AI টেলিমেডিসিন', 'AI telemedicine')}</li>
-                <li className="flex items-center gap-2">✅ {t('স্মার্ট কৃষি', 'Smart agriculture')}</li>
-                <li className="flex items-center gap-2">✅ {t('মোবাইল ব্যাংকিং', 'Mobile banking')}</li>
+                <li className="flex items-center gap-2">✅ {language === 'bn' ? '৯০%+ কর্মসংস্থান' : '90%+ employment'}</li>
+                <li className="flex items-center gap-2">✅ {language === 'bn' ? 'AI টেলিমেডিসিন' : 'AI telemedicine'}</li>
+                <li className="flex items-center gap-2">✅ {language === 'bn' ? 'স্মার্ট কৃষি' : 'Smart agriculture'}</li>
+                <li className="flex items-center gap-2">✅ {language === 'bn' ? 'মোবাইল ব্যাংকিং' : 'Mobile banking'}</li>
               </ul>
             </div>
           </div>
@@ -235,19 +233,18 @@ const Solutions = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            {t('যুক্ত হন এখনই!', 'Join Us Now!')}
+            {language === 'bn' ? 'যুক্ত হন এখনই!' : 'Join Us Now!'}
           </h2>
           <p className="text-lg mb-8 opacity-90">
-            {t(
-              'আপনার অংশগ্রহণ বাংলাদেশকে বদলে দেবে',
-              'Your participation will transform Bangladesh'
-            )}
+            {language === 'bn'
+              ? 'আপনার অংশগ্রহণ বাংলাদেশকে বদলে দেবে'
+              : 'Your participation will transform Bangladesh'}
           </p>
           <Link
-            to="/"
+            to="/get-involved"
             className="inline-block bg-secondary text-secondary-foreground px-8 py-4 rounded-xl text-xl font-bold hover:bg-secondary/90 transition-all transform hover:scale-105 shadow-xl"
           >
-            {t('শুরু করুন →', 'Get Started →')}
+            {language === 'bn' ? 'শুরু করুন →' : 'Get Started →'}
           </Link>
         </div>
       </section>

@@ -14,6 +14,7 @@ const Header = () => {
     { path: '/', labelBn: 'হোম', labelEn: 'Home' },
     { path: '/problems', labelBn: 'সমস্যা', labelEn: 'Problems' },
     { path: '/solutions', labelBn: 'সমাধান', labelEn: 'Solutions' },
+    { path: '/get-involved', labelBn: 'যুক্ত হন', labelEn: 'Get Involved' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
