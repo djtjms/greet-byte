@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import PaddyField from '@/components/PaddyField';
 
 const Problems = () => {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
   const [costCounter, setCostCounter] = useState(0);
 
   // Simulated "Cost of Inaction" counter
@@ -89,13 +89,12 @@ const Problems = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="text-6xl mb-6">😔</div>
           <h1 className="text-3xl md:text-5xl font-bold text-primary mb-4">
-            {t('আমরা এই সমস্যাগুলো জানি', 'We Know These Challenges')}
+            {language === 'bn' ? 'আমরা এই সমস্যাগুলো জানি' : 'We Know These Challenges'}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t(
-              'বাংলাদেশের মানুষ প্রতিদিন যে সমস্যার মুখোমুখি হয়',
-              'The challenges Bangladeshi people face every day'
-            )}
+            {language === 'bn' 
+              ? 'বাংলাদেশের মানুষ প্রতিদিন যে সমস্যার মুখোমুখি হয়'
+              : 'The challenges Bangladeshi people face every day'}
           </p>
         </div>
       </section>
@@ -106,14 +105,14 @@ const Problems = () => {
           <div className="flex items-center justify-center gap-3 mb-2">
             <TrendingDown className="w-8 h-8 animate-pulse" />
             <h2 className="text-xl md:text-2xl font-bold">
-              {t('নিষ্ক্রিয়তার মূল্য', 'Cost of Inaction')}
+              {language === 'bn' ? 'নিষ্ক্রিয়তার মূল্য' : 'Cost of Inaction'}
             </h2>
           </div>
           <div className="text-4xl md:text-6xl font-bold font-mono">
             ৳ {costCounter.toLocaleString()}
           </div>
           <p className="text-sm opacity-80 mt-2">
-            {t('প্রতি সেকেন্ডে ক্ষতি', 'Lost every second')}
+            {language === 'bn' ? 'প্রতি সেকেন্ডে ক্ষতি' : 'Lost every second'}
           </p>
         </div>
       </section>
@@ -122,7 +121,7 @@ const Problems = () => {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-primary mb-12">
-            {t('৬টি বড় সমস্যা', '6 Major Challenges')}
+            {language === 'bn' ? '৬টি বড় সমস্যা' : '6 Major Challenges'}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -136,13 +135,13 @@ const Problems = () => {
                   {problem.icon}
                 </div>
                 <h3 className="text-xl font-bold text-center text-foreground mb-2">
-                  {t(problem.titleBn, problem.titleEn)}
+                  {language === 'bn' ? problem.titleBn : problem.titleEn}
                 </h3>
                 <div className="text-2xl font-bold text-center text-primary mb-2">
-                  {t(problem.statBn, problem.statEn)}
+                  {language === 'bn' ? problem.statBn : problem.statEn}
                 </div>
                 <p className="text-center text-muted-foreground">
-                  {t(problem.descBn, problem.descEn)}
+                  {language === 'bn' ? problem.descBn : problem.descEn}
                 </p>
               </div>
             ))}
@@ -154,19 +153,18 @@ const Problems = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            {t('কিন্তু সমাধান আছে!', 'But There Is A Solution!')}
+            {language === 'bn' ? 'কিন্তু সমাধান আছে!' : 'But There Is A Solution!'}
           </h2>
           <p className="text-lg mb-8 opacity-90">
-            {t(
-              'বাংলাদেশ ২.০ এই সব সমস্যার সমাধান নিয়ে এসেছে',
-              'Bangladesh 2.0 brings solutions to all these challenges'
-            )}
+            {language === 'bn'
+              ? 'বাংলাদেশ ২.০ এই সব সমস্যার সমাধান নিয়ে এসেছে'
+              : 'Bangladesh 2.0 brings solutions to all these challenges'}
           </p>
           <a
             href="/solutions"
             className="inline-block bg-secondary text-secondary-foreground px-8 py-4 rounded-xl text-xl font-bold hover:bg-secondary/90 transition-all transform hover:scale-105 shadow-xl"
           >
-            {t('সমাধান দেখুন →', 'See Solutions →')}
+            {language === 'bn' ? 'সমাধান দেখুন →' : 'See Solutions →'}
           </a>
         </div>
       </section>

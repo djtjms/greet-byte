@@ -6,7 +6,7 @@ import PaddyField from "@/components/PaddyField";
 import { Link } from "react-router-dom";
 
 const Index = () => {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background pt-16">
@@ -25,17 +25,17 @@ const Index = () => {
         <div className="relative z-10 animate-float mb-6">
           <img 
             src={bangladeshLogo} 
-            alt={t('বাংলাদেশ ২.০ লোগো', 'Bangladesh 2.0 Logo')}
+            alt={language === 'bn' ? 'বাংলাদেশ ২.০ লোগো' : 'Bangladesh 2.0 Logo'}
             className="w-36 h-36 md:w-48 md:h-48 object-contain drop-shadow-2xl"
           />
         </div>
         
         {/* Title */}
         <h1 className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-bold text-center text-primary mb-3 animate-fade-in">
-          {t('বাংলাদেশ ২.০', 'Bangladesh 2.0')}
+          {language === 'bn' ? 'বাংলাদেশ ২.০' : 'Bangladesh 2.0'}
         </h1>
         <p className="relative z-10 text-lg md:text-xl text-center text-muted-foreground max-w-2xl mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          {t('নিজেকে বদলান, বাংলাদেশ বদলাবে', 'Change Yourself to Change Bangladesh')}
+          {language === 'bn' ? 'নিজেকে বদলান, বাংলাদেশ বদলাবে' : 'Change Yourself to Change Bangladesh'}
         </p>
 
         {/* Leader Section */}
@@ -44,15 +44,15 @@ const Index = () => {
             <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-secondary shadow-xl mb-4">
               <img 
                 src={tariqueRahman} 
-                alt={t('জনাব তারেক রহমান', 'Mr. Tarique Rahman')}
+                alt={language === 'bn' ? 'জনাব তারেক রহমান' : 'Mr. Tarique Rahman'}
                 className="w-full h-full object-cover"
               />
             </div>
             <h2 className="text-xl md:text-2xl font-bold text-primary text-center">
-              {t('জনাব তারেক রহমান', 'Mr. Tarique Rahman')}
+              {language === 'bn' ? 'জনাব তারেক রহমান' : 'Mr. Tarique Rahman'}
             </h2>
             <p className="text-sm text-muted-foreground text-center">
-              {t('নেতা ও পথপ্রদর্শক', 'Leader & Visionary')}
+              {language === 'bn' ? 'নেতা ও পথপ্রদর্শক' : 'Leader & Visionary'}
             </p>
           </div>
         </div>
@@ -67,13 +67,13 @@ const Index = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            🇧🇩 {t('আমাদের স্বপ্ন', 'Our Dream')}
+            🇧🇩 {language === 'bn' ? 'আমাদের স্বপ্ন' : 'Our Dream'}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-            <VisionCard icon="💰" label={t('$1 ট্রিলিয়ন', '$1 Trillion')} sublabel={t('অর্থনীতি', 'Economy')} />
-            <VisionCard icon="💼" label={t('কর্মসংস্থান', 'Jobs for All')} sublabel={t('সবার জন্য', 'Employment')} />
-            <VisionCard icon="🏥" label={t('স্বাস্থ্যসেবা', 'Healthcare')} sublabel={t('সবার জন্য', 'For All')} />
-            <VisionCard icon="📚" label={t('শিক্ষা', 'Education')} sublabel={t('মানসম্মত', 'Quality')} />
+            <VisionCard icon="💰" label={language === 'bn' ? '$1 ট্রিলিয়ন' : '$1 Trillion'} sublabel={language === 'bn' ? 'অর্থনীতি' : 'Economy'} />
+            <VisionCard icon="💼" label={language === 'bn' ? 'কর্মসংস্থান' : 'Jobs for All'} sublabel={language === 'bn' ? 'সবার জন্য' : 'Employment'} />
+            <VisionCard icon="🏥" label={language === 'bn' ? 'স্বাস্থ্যসেবা' : 'Healthcare'} sublabel={language === 'bn' ? 'সবার জন্য' : 'For All'} />
+            <VisionCard icon="📚" label={language === 'bn' ? 'শিক্ষা' : 'Education'} sublabel={language === 'bn' ? 'মানসম্মত' : 'Quality'} />
           </div>
         </div>
       </section>
@@ -82,19 +82,19 @@ const Index = () => {
       <section className="py-16 px-4 bg-background">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-primary mb-4">
-            {t('আপনি কে?', 'Who Are You?')}
+            {language === 'bn' ? 'আপনি কে?' : 'Who Are You?'}
           </h2>
           <p className="text-center text-muted-foreground mb-10">
-            {t('আপনার জন্য কী আছে দেখুন', 'See what\'s for you')}
+            {language === 'bn' ? 'আপনার জন্য কী আছে দেখুন' : "See what's for you"}
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-            <RoleCard icon={<Users className="w-12 h-12" />} label={t('নাগরিক', 'Citizen')} sublabel={t('সাধারণ মানুষ', 'General Public')} />
-            <RoleCard icon={<GraduationCap className="w-12 h-12" />} label={t('শিক্ষার্থী', 'Student')} sublabel={t('ছাত্র-ছাত্রী', 'Learners')} />
-            <RoleCard icon={<Stethoscope className="w-12 h-12" />} label={t('ডাক্তার', 'Doctor')} sublabel={t('স্বাস্থ্যকর্মী', 'Healthcare')} />
-            <RoleCard icon={<Wheat className="w-12 h-12" />} label={t('কৃষক', 'Farmer')} sublabel={t('চাষী', 'Agriculture')} />
-            <RoleCard icon={<Building2 className="w-12 h-12" />} label={t('ব্যবসায়ী', 'Business')} sublabel={t('উদ্যোক্তা', 'Entrepreneur')} />
-            <RoleCard icon={<Landmark className="w-12 h-12" />} label={t('সরকারি', 'Government')} sublabel={t('কর্মকর্তা', 'Official')} />
+            <RoleCard icon={<Users className="w-12 h-12" />} label={language === 'bn' ? 'নাগরিক' : 'Citizen'} sublabel={language === 'bn' ? 'সাধারণ মানুষ' : 'General Public'} />
+            <RoleCard icon={<GraduationCap className="w-12 h-12" />} label={language === 'bn' ? 'শিক্ষার্থী' : 'Student'} sublabel={language === 'bn' ? 'ছাত্র-ছাত্রী' : 'Learners'} />
+            <RoleCard icon={<Stethoscope className="w-12 h-12" />} label={language === 'bn' ? 'ডাক্তার' : 'Doctor'} sublabel={language === 'bn' ? 'স্বাস্থ্যকর্মী' : 'Healthcare'} />
+            <RoleCard icon={<Wheat className="w-12 h-12" />} label={language === 'bn' ? 'কৃষক' : 'Farmer'} sublabel={language === 'bn' ? 'চাষী' : 'Agriculture'} />
+            <RoleCard icon={<Building2 className="w-12 h-12" />} label={language === 'bn' ? 'ব্যবসায়ী' : 'Business'} sublabel={language === 'bn' ? 'উদ্যোক্তা' : 'Entrepreneur'} />
+            <RoleCard icon={<Landmark className="w-12 h-12" />} label={language === 'bn' ? 'সরকারি' : 'Government'} sublabel={language === 'bn' ? 'কর্মকর্তা' : 'Official'} />
           </div>
         </div>
       </section>
@@ -103,34 +103,34 @@ const Index = () => {
       <section className="py-16 px-4 bg-muted">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-primary mb-10">
-            📊 {t('অগ্রগতি', 'Progress')}
+            📊 {language === 'bn' ? 'অগ্রগতি' : 'Progress'}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ProgressCard 
               icon={<TrendingUp className="w-8 h-8 text-primary" />}
-              label={t('জিডিপি অগ্রগতি', 'GDP Progress')}
+              label={language === 'bn' ? 'জিডিপি অগ্রগতি' : 'GDP Progress'}
               value={450}
               max={1000}
               unit="$B"
             />
             <ProgressCard 
               icon={<Wifi className="w-8 h-8 text-primary" />}
-              label={t('ডিজিটাল কাজ', 'Digital Jobs')}
+              label={language === 'bn' ? 'ডিজিটাল কাজ' : 'Digital Jobs'}
               value={125000}
               max={500000}
               unit=""
             />
             <ProgressCard 
               icon={<Heart className="w-8 h-8 text-primary" />}
-              label={t('কৃষক সংযুক্ত', 'Farmers Connected')}
+              label={language === 'bn' ? 'কৃষক সংযুক্ত' : 'Farmers Connected'}
               value={2500000}
               max={10000000}
               unit=""
             />
             <ProgressCard 
               icon={<BookOpen className="w-8 h-8 text-primary" />}
-              label={t('শিক্ষার্থী শিখছে', 'Students Learning')}
+              label={language === 'bn' ? 'শিক্ষার্থী শিখছে' : 'Students Learning'}
               value={500000}
               max={2000000}
               unit=""
@@ -143,7 +143,7 @@ const Index = () => {
       <section className="py-16 px-4 bg-background">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-primary mb-10">
-            {t('আরও জানুন', 'Learn More')}
+            {language === 'bn' ? 'আরও জানুন' : 'Learn More'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Link 
@@ -152,10 +152,10 @@ const Index = () => {
             >
               <div className="text-4xl mb-3">😔</div>
               <h3 className="text-xl font-bold text-foreground mb-2">
-                {t('সমস্যাগুলো দেখুন', 'See The Problems')}
+                {language === 'bn' ? 'সমস্যাগুলো দেখুন' : 'See The Problems'}
               </h3>
               <p className="text-muted-foreground">
-                {t('বাংলাদেশের চ্যালেঞ্জ জানুন', 'Understand Bangladesh\'s challenges')}
+                {language === 'bn' ? 'বাংলাদেশের চ্যালেঞ্জ জানুন' : "Understand Bangladesh's challenges"}
               </p>
             </Link>
             <Link 
@@ -164,10 +164,10 @@ const Index = () => {
             >
               <div className="text-4xl mb-3">✨</div>
               <h3 className="text-xl font-bold text-foreground mb-2">
-                {t('সমাধান দেখুন', 'See The Solutions')}
+                {language === 'bn' ? 'সমাধান দেখুন' : 'See The Solutions'}
               </h3>
               <p className="text-muted-foreground">
-                {t('বাংলাদেশ ২.০ কীভাবে সাহায্য করবে', 'How Bangladesh 2.0 helps')}
+                {language === 'bn' ? 'বাংলাদেশ ২.০ কীভাবে সাহায্য করবে' : 'How Bangladesh 2.0 helps'}
               </p>
             </Link>
           </div>
@@ -178,14 +178,17 @@ const Index = () => {
       <section className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            🤝 {t('যুক্ত হন', 'Join Us')}
+            🤝 {language === 'bn' ? 'যুক্ত হন' : 'Join Us'}
           </h2>
           <p className="text-lg md:text-xl mb-8 opacity-90">
-            {t('একসাথে বাংলাদেশ গড়ি', 'Let\'s Build Bangladesh Together')}
+            {language === 'bn' ? 'একসাথে বাংলাদেশ গড়ি' : "Let's Build Bangladesh Together"}
           </p>
-          <button className="bg-secondary text-secondary-foreground px-8 py-4 rounded-xl text-xl font-bold hover:bg-secondary/90 transition-all transform hover:scale-105 shadow-xl">
-            {t('শুরু করুন', 'Get Started')}
-          </button>
+          <Link 
+            to="/get-involved"
+            className="inline-block bg-secondary text-secondary-foreground px-8 py-4 rounded-xl text-xl font-bold hover:bg-secondary/90 transition-all transform hover:scale-105 shadow-xl"
+          >
+            {language === 'bn' ? 'শুরু করুন' : 'Get Started'}
+          </Link>
         </div>
       </section>
 
@@ -198,7 +201,7 @@ const Index = () => {
             className="w-16 h-16 mx-auto mb-4 opacity-80"
           />
           <p className="text-sm opacity-70">
-            © 2024 {t('বাংলাদেশ ২.০ - নিজেকে বদলান, বাংলাদেশ বদলাবে', 'Bangladesh 2.0 - Change Yourself to Change Bangladesh')}
+            © 2024 {language === 'bn' ? 'বাংলাদেশ ২.০ - নিজেকে বদলান, বাংলাদেশ বদলাবে' : 'Bangladesh 2.0 - Change Yourself to Change Bangladesh'}
           </p>
         </div>
       </footer>
