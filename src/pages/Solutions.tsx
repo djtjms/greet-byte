@@ -89,7 +89,7 @@ const Solutions = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background pt-20">
+    <div className="min-h-screen bg-background pt-20 page-enter">
       {/* Hero Section */}
       <section className="relative py-16 px-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden">
         <div className="absolute bottom-0 left-0 opacity-30">

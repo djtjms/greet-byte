@@ -35,15 +35,15 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`font-medium transition-colors hover:text-primary ${
+              className={`nav-link-hover font-medium py-2 transition-all duration-300 hover:text-primary ${
                 isActive(link.path)
-                  ? 'text-primary border-b-2 border-primary pb-1'
-                  : 'text-foreground/70'
+                  ? 'text-primary font-semibold'
+                  : 'text-foreground/70 hover:translate-y-[-2px]'
               }`}
             >
               {t(link.labelBn, link.labelEn)}

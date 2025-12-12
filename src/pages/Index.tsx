@@ -8,8 +8,10 @@ import { Link } from "react-router-dom";
 const Index = () => {
   const { language } = useLanguage();
 
+  const APP_URL = "https://bangladeshai2app.netlify.app";
+
   return (
-    <div className="min-h-screen bg-background pt-16">
+    <div className="min-h-screen bg-background pt-16 page-enter">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 py-12 overflow-hidden">
         {/* Background Pattern */}
@@ -89,12 +91,12 @@ const Index = () => {
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-            <RoleCard icon={<Users className="w-12 h-12" />} label={language === 'bn' ? 'নাগরিক' : 'Citizen'} sublabel={language === 'bn' ? 'সাধারণ মানুষ' : 'General Public'} />
-            <RoleCard icon={<GraduationCap className="w-12 h-12" />} label={language === 'bn' ? 'শিক্ষার্থী' : 'Student'} sublabel={language === 'bn' ? 'ছাত্র-ছাত্রী' : 'Learners'} />
-            <RoleCard icon={<Stethoscope className="w-12 h-12" />} label={language === 'bn' ? 'ডাক্তার' : 'Doctor'} sublabel={language === 'bn' ? 'স্বাস্থ্যকর্মী' : 'Healthcare'} />
-            <RoleCard icon={<Wheat className="w-12 h-12" />} label={language === 'bn' ? 'কৃষক' : 'Farmer'} sublabel={language === 'bn' ? 'চাষী' : 'Agriculture'} />
-            <RoleCard icon={<Building2 className="w-12 h-12" />} label={language === 'bn' ? 'ব্যবসায়ী' : 'Business'} sublabel={language === 'bn' ? 'উদ্যোক্তা' : 'Entrepreneur'} />
-            <RoleCard icon={<Landmark className="w-12 h-12" />} label={language === 'bn' ? 'সরকারি' : 'Government'} sublabel={language === 'bn' ? 'কর্মকর্তা' : 'Official'} />
+            <RoleCard href={APP_URL} icon={<Users className="w-12 h-12" />} label={language === 'bn' ? 'নাগরিক' : 'Citizen'} sublabel={language === 'bn' ? 'সাধারণ মানুষ' : 'General Public'} />
+            <RoleCard href={APP_URL} icon={<GraduationCap className="w-12 h-12" />} label={language === 'bn' ? 'শিক্ষার্থী' : 'Student'} sublabel={language === 'bn' ? 'ছাত্র-ছাত্রী' : 'Learners'} />
+            <RoleCard href={APP_URL} icon={<Stethoscope className="w-12 h-12" />} label={language === 'bn' ? 'ডাক্তার' : 'Doctor'} sublabel={language === 'bn' ? 'স্বাস্থ্যকর্মী' : 'Healthcare'} />
+            <RoleCard href={APP_URL} icon={<Wheat className="w-12 h-12" />} label={language === 'bn' ? 'কৃষক' : 'Farmer'} sublabel={language === 'bn' ? 'চাষী' : 'Agriculture'} />
+            <RoleCard href={APP_URL} icon={<Building2 className="w-12 h-12" />} label={language === 'bn' ? 'ব্যবসায়ী' : 'Business'} sublabel={language === 'bn' ? 'উদ্যোক্তা' : 'Entrepreneur'} />
+            <RoleCard href={APP_URL} icon={<Landmark className="w-12 h-12" />} label={language === 'bn' ? 'সরকারি' : 'Government'} sublabel={language === 'bn' ? 'কর্মকর্তা' : 'Official'} />
           </div>
         </div>
       </section>
@@ -219,14 +221,19 @@ const VisionCard = ({ icon, label, sublabel }: { icon: string; label: string; su
 );
 
 // Role Selection Card
-const RoleCard = ({ icon, label, sublabel }: { icon: React.ReactNode; label: string; sublabel: string }) => (
-  <button className="bg-card border-2 border-primary/20 rounded-2xl p-6 text-center hover:border-primary hover:shadow-lg transition-all transform hover:scale-105 group">
-    <div className="text-primary mb-3 flex justify-center group-hover:scale-110 transition-transform">
+const RoleCard = ({ href, icon, label, sublabel }: { href: string; icon: React.ReactNode; label: string; sublabel: string }) => (
+  <a 
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-card border-2 border-primary/20 rounded-2xl p-6 text-center hover:border-primary card-hover-glow transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group block"
+  >
+    <div className="text-primary mb-3 flex justify-center group-hover:scale-110 transition-transform duration-300">
       {icon}
     </div>
     <div className="font-bold text-lg text-foreground">{label}</div>
     <div className="text-sm text-muted-foreground">{sublabel}</div>
-  </button>
+  </a>
 );
 
 // Progress Bar Card
